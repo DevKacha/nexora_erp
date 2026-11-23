@@ -1,11 +1,27 @@
-# Mini ERP + CRM Operations Portal
+# Nexora ERP – Enterprise Business Management System
 
-Full-stack ERP/CRM for a wholesale/distribution company: role-based auth, customer CRM, product & inventory, sales challans with stock control, and GST invoices with PDF export.
+Nexora ERP is a full-stack ERP and CRM application designed to simplify and manage essential business operations through a centralized platform.
 
-## Tech Stack
-- **Backend:** Node.js, TypeScript, Express, Prisma, PostgreSQL, Zod, JWT
-- **Frontend:** React, TypeScript, Vite, React Router, TanStack Query, Tailwind CSS
-- **Infra:** Docker Compose (local), Vercel + Render + Neon (deploy)
+The project brings together customer relationship management, product and inventory management, stock tracking, sales challans, and GST invoice generation in one integrated system.
+
+Built using modern web technologies, Nexora ERP provides role-based access for Admin, Sales, Warehouse, and Accounts users, helping businesses manage their daily operations more efficiently.
+
+### Key Features
+- Customer Management and Follow-up Tracking
+- Product and Inventory Management
+- Stock Movement and Low-Stock Monitoring
+- Sales Challan Management
+- GST Invoice Generation with PDF Export
+- Role-Based Authentication and Authorization
+- Admin Dashboard and User Management
+- RESTful API Integration
+
+### Technology Stack
+- **Frontend:** React.js, TypeScript, Vite, Tailwind CSS, TanStack Query, React Router
+- **Backend:** Node.js, Express.js, TypeScript, Zod, JWT, PDFKit
+- **Database:** PostgreSQL
+- **ORM:** Prisma
+- **Infra / DevOps:** Docker, Docker Compose (local), Vercel + Render + Neon (deploy)
 
 ## Architecture
 Layered monolith. Backend requests flow `router -> middleware (auth -> authorize -> validate) -> controller -> service -> Prisma -> PostgreSQL`. Each domain lives under `backend/src/modules/<name>` with its own router/controller/service/schema. Frontend is a role-guarded SPA using TanStack Query for all server state and an `AuthContext` (JWT persisted to localStorage). See `docs/superpowers/specs/2026-07-22-erp-crm-design.md`.
@@ -34,7 +50,7 @@ docker compose exec backend npx prisma db seed
 - Frontend: http://localhost:8080
 - API: http://localhost:3000
 
-## Run Locally (manual)
+## Run Locally (Manual)
 Prereqs: Node 20+, PostgreSQL running.
 
 **Backend**
